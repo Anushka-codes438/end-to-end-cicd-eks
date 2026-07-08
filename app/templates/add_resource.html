@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Resource</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Add Cloud Resource</h1>
+
+    <form action="/add-resource" method="POST">
+
+        <label>Resource Name</label>
+        <input type="text" name="resource_name" required>
+
+        <label>Resource Type</label>
+        <select name="resource_type">
+            <option>EC2</option>
+            <option>S3</option>
+            <option>RDS</option>
+            <option>Lambda</option>
+            <option>EKS</option>
+        </select>
+
+        <label>Region</label>
+        <input type="text" name="region" placeholder="ap-south-1">
+
+        <label>Status</label>
+        <select name="status">
+            <option>Running</option>
+            <option>Stopped</option>
+            <option>Available</option>
+        </select>
+
+        <label>Owner</label>
+        <input type="text" name="owner">
+
+        <br><br>
+
+        <button type="submit">Save Resource</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

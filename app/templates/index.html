@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Resource Inventory Manager</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>☁️ Cloud Resource Inventory Manager</h1>
+        <p>Manage and track your cloud resources efficiently.</p>
+    </header>
+
+    <div class="action-bar">
+        <a href="/add-resource" class="btn">Add Resource</a>
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Resource Name</th>
+                <th>Resource Type</th>
+                <th>Region</th>
+                <th>Status</th>
+                <th>Owner</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% if resources %}
+
+            {% for resource in resources %}
+
+            <tr>
+
+                <td>{{ resource.resource_name }}</td>
+                <td>{{ resource.resource_type }}</td>
+                <td>{{ resource.region }}</td>
+                <td>{{ resource.status }}</td>
+                <td>{{ resource.owner }}</td>
+
+                <td>
+                    Edit | Delete
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        {% else %}
+
+            <tr>
+                <td colspan="6">No resources available.</td>
+            </tr>
+
+        {% endif %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
